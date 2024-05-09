@@ -18,6 +18,8 @@ export const server_calls = {
     },
 
     create: async(data: any = {}) => {
+        console.log(""+JSON.stringify(data));
+        
         const response = await fetch('https://phonebook-app-fhx8.onrender.com/api/contacts',{
             method: 'POST',
             headers:{
@@ -35,7 +37,7 @@ export const server_calls = {
         return await response.json()
     },
     update: async (id: string, data:any = {}) => {
-        const response = await fetch('https://phonebook-app-fhx8.onrender.com/api/contacts/${id}', {
+        const response = await fetch(`https://phonebook-app-fhx8.onrender.com/api/contacts/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,7 +56,7 @@ export const server_calls = {
         },
 
     delete: async(id:string) => {
-        const response = await fetch('https://phonebook-app-fhx8.onrender.com/api/contacts/${id}',{
+        const response = await fetch(`https://phonebook-app-fhx8.onrender.com/api/contacts/${id}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

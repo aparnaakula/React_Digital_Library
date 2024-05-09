@@ -13,7 +13,7 @@ const routes: RouteType[] = [
       path: "",
       component: Home,
       name: "Home Screen",
-      protected: false
+      protected: true
     },
     {
       path: "/dashboard",
@@ -25,7 +25,7 @@ const routes: RouteType[] = [
       path: "/about",
       component: About,
       name: "About",
-      protected: false
+      protected: true
     }
 ];
 

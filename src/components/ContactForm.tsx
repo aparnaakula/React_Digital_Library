@@ -26,7 +26,8 @@ const ContactForm = ( props:ContactFormProps) => {
       setTimeout(() => {window.location.reload()}, 500);
       event.target.reset()
     } else {
-      dispatch(choseName(data.Name));
+
+      dispatch(choseName(data.name));
       dispatch(choseEmail(data.email));
       dispatch(chosePhone(data.phone_number));
       dispatch(choseAddress(data.address));
@@ -41,7 +42,7 @@ const ContactForm = ( props:ContactFormProps) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="name">Contact Name</label>
-          <Input {...register('name')} name='last' placeholder="Last" />
+          <Input {...register('name')} name='name' placeholder="Last" />
         </div>
         <div>
           <label htmlFor="email">Email</label>
