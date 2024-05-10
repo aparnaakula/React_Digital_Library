@@ -1,3 +1,4 @@
+// Crud Operations
 const token = '51ab2537db50df99cbf9e4edabfcb76dd9f48a635a38276c'
 export const server_calls = {
     get: async () => {
