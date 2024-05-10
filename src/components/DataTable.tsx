@@ -7,11 +7,11 @@ import { useGetData } from '../custom-hooks/FetchData';
 
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: "ID", width: 90},
-    { field: 'name', headerName: "Name", flex: 1},
-    { field: 'email', headerName: "Email", flex: 1},
-    { field: 'phone_number', headerName: "Phone Number", flex: 1},
-    { field: 'address', headerName: "Address", flex: 1}
+    //{ field: 'id', headerName: "ID", width: 90},
+    { field: 'title', headerName: "title", flex: 1},
+    { field: 'author', headerName: "author", flex: 1},
+    { field: 'isbn', headerName: "isbn", flex: 1},
+    { field: 'genre', headerName: "genre", flex: 1}
 ]
 
 
@@ -48,7 +48,7 @@ function DataTable() {
                     className="p-3 bg-slate-300 rounded m-3 hover:bg-slate-800 hover:text-white"
                     onClick={() => handleOpen()}
                 >
-                    Create New Contact
+                    Add New Book
                 </button>
             </div> 
             <Button onClick={handleOpen} className="p-3 bg-slate-300 rounded m-3 hover:bg-slate-800 hover:text-white" >Update</Button>
@@ -57,7 +57,7 @@ function DataTable() {
         <div className={ open ? "hidden" : "container mx-10 my-5 flex flex-col"}
             style={{ height: 400, width: '100%'}}
         >
-            <h2 className="p-3 bg-slate-300 my-2 rounded">My Contacts</h2>
+            <h2 className="p-3 bg-slate-300 my-2 rounded">My Books</h2>
             <DataGrid rows={contactData} columns={columns} rowsPerPageOptions={[5]}
             checkboxSelection={true} 
             onSelectionModelChange={ (item:any) => {

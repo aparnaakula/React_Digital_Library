@@ -5,7 +5,7 @@ import Input from "./Input"
 import { useForm } from 'react-hook-form'
 import { server_calls } from "../api/server"
 import { useDispatch, useStore } from "react-redux"
-import { choseName, choseEmail, chosePhone, choseAddress} from "../redux/slices/RootSlice"
+import { title, author, isbn, genre} from "../redux/slices/RootSlice"
 
 interface ContactFormProps {
   id?: string[]
@@ -27,10 +27,10 @@ const ContactForm = ( props:ContactFormProps) => {
       event.target.reset()
     } else {
 
-      dispatch(choseName(data.name));
-      dispatch(choseEmail(data.email));
-      dispatch(chosePhone(data.phone_number));
-      dispatch(choseAddress(data.address));
+      dispatch(title(data.title));
+      dispatch(author(data.author));
+      dispatch(isbn(data.isbn));
+      dispatch(genre(data.genre));
 
       server_calls.create(store.getState())
       setTimeout(() => {window.location.reload()}, 500);
@@ -41,20 +41,20 @@ const ContactForm = ( props:ContactFormProps) => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="name">Contact Name</label>
-          <Input {...register('name')} name='name' placeholder="Last" />
+          <label htmlFor="title">Title</label>
+          <Input {...register('title')} name='title' placeholder="title" />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
-          <Input {...register('email')} name='email' placeholder="Email" />
+          <label htmlFor="author">Author</label>
+          <Input {...register('author')} name='author' placeholder="author" />
         </div>
         <div>
-          <label htmlFor="phone_number">Phone Number</label>
-          <Input {...register('phone_number')} name='phone_number' placeholder="Phone Number" />
+          <label htmlFor="isbn">isbn</label>
+          <Input {...register('isbn')} name='isbn' placeholder="isbn" />
         </div>
         <div>
-          <label htmlFor="address">Address</label>
-          <Input {...register('address')} name='address' placeholder="Address" />
+          <label htmlFor="genre">Genre</label>
+          <Input {...register('genre')} name='genre' placeholder="genre" />
         </div>
         <div className="flex p-1">
           <Button className="flex justify-start m-3 bg-slate-300 p-2 rounded hover:bg-slate-800 text-white"
